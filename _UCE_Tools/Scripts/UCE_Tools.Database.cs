@@ -6,7 +6,9 @@
 // * Leave a star on my Github Repo.....: https://github.com/breehuynh/Bree-mmorpg-tools
 // * Instructions.......................: https://indie-mmo.net/knowledge-base/
 // =======================================================================================
+#if MYSQL
 using MySql.Data.MySqlClient;
+#endif
 using SQLite;
 using UnityEngine;
 

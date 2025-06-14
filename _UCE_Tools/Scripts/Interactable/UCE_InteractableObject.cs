@@ -118,28 +118,28 @@ public partial class UCE_InteractableObject : UCE_Interactable
     // -----------------------------------------------------------------------------------
     // Show
     // -----------------------------------------------------------------------------------
-    /*[Server]
+    [Server]
     public void Show()
     {
-        proxchecker.forceHidden = false;
-    }*/
+        netIdentity.visibility = Visibility.Default;
+    }
 
     // -----------------------------------------------------------------------------------
     // Hide
     // -----------------------------------------------------------------------------------
-    /*[Server]
+    [Server]
     public void Hide()
     {
-        proxchecker.forceHidden = true;
-    }*/
+        netIdentity.visibility = Visibility.ForceHidden;
+    }
 
     // -----------------------------------------------------------------------------------
     // IsHidden
     // -----------------------------------------------------------------------------------
-    /*public bool IsHidden()
+    public bool IsHidden()
     {
-        return proxchecker.forceHidden;
-    }*/
+        return netIdentity.visibility == Visibility.ForceHidden;
+    }
 
     // -----------------------------------------------------------------------------------
     // checkInteractionRange
@@ -209,7 +209,7 @@ public partial class UCE_InteractableObject : UCE_Interactable
     public override bool IsWorthUpdating()
     {
         return netIdentity.observers == null ||
-               netIdentity.observers.Count > 0;
+               netIdentity.observers.Count > 0 || IsHidden();
     }
 
     // -----------------------------------------------------------------------------------
